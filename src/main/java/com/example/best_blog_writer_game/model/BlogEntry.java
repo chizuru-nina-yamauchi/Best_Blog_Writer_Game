@@ -8,6 +8,7 @@ public class BlogEntry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String author;
+    private String title;
 
     @Column(length = 500)
     private String text;
@@ -15,6 +16,13 @@ public class BlogEntry {
     private int referencesCount;
 
     public BlogEntry() {
+    }
+
+    public BlogEntry(String author, String title, String text, int referencesCount) {
+        this.author = author;
+        this.title = title;
+        this.text = text;
+        this.referencesCount = referencesCount;
     }
 
     public BlogEntry(String author, String text, int referencesCount) {
@@ -49,6 +57,14 @@ public class BlogEntry {
 
     public void setReferencesCount(int referencesCount) {
         this.referencesCount = referencesCount;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 

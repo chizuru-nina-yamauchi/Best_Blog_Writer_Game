@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Blogs</title>
+</head>
+<body>
+<h2>All Blogs</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Author</th>
+        <th>Text</th>
+        <th>Reference Count</th>
+    </tr>
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blog.id}"></td>
+        <td th:text="${blog.author}"></td>
+        <td th:text="${blog.text}"></td>
+        <td th:text="${blog.referenceCount}"></td>
+    </tr>
+</table>
+</body>
+</html>
