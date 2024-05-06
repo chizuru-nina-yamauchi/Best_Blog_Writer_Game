@@ -3,32 +3,32 @@ package com.example.best_blog_writer_game.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "blog_entries")
 public class BlogEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String author;
+    @Column(nullable = false)
     private String title;
 
-    @Column(length = 500)
+    @Column(length = 1000, nullable = false)
     private String text;
-
-    private int referencesCount;
 
     public BlogEntry() {
     }
 
-    public BlogEntry(String author, String title, String text, int referencesCount) {
+    public BlogEntry(String author, String title, String text) {
         this.author = author;
         this.title = title;
         this.text = text;
-        this.referencesCount = referencesCount;
     }
 
-    public BlogEntry(String author, String text, int referencesCount) {
+    public BlogEntry(String author, String text) {
         this.author = author;
         this.text = text;
-        this.referencesCount = referencesCount;
     }
 
     public Long getId() {
@@ -49,14 +49,6 @@ public class BlogEntry {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public int getReferencesCount() {
-        return referencesCount;
-    }
-
-    public void setReferencesCount(int referencesCount) {
-        this.referencesCount = referencesCount;
     }
 
     public String getTitle() {
